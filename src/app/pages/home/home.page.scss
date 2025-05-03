@@ -1,0 +1,45 @@
+ion-content {
+  --background: linear-gradient(150deg, rgb(0, 126, 71), rgb(55, 0, 96));
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.boton {
+  width: 85vw;
+  height: 38vh;
+  --border-radius: 12px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  overflow: hidden;
+}
+
+.boton-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.boton-contenido img {
+  width: 90%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.boton-texto {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}

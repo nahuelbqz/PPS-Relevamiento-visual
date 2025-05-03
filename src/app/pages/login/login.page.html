@@ -1,0 +1,94 @@
+<!-- <app-header title="Inicio de sesión"></app-header> -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="titulo" style="margin: 34px 0px 10px 0;">
+      Inicio de sesión
+      <div class="nombre-aplicacion">Relevamiento visual</div>
+    </ion-title>
+
+    <ion-buttons slot="end" *ngIf="isLoggedIn">
+      <ion-button (click)="logout()">
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <!-- EMAIL -->
+      <ion-item class="ion-margin-top">
+        <ion-icon slot="start" name="mail-outline" color="primary"></ion-icon>
+        <ion-input type="email" placeholder="Email" formControlName="email" label="Correo" label-placement="floating"
+          autocomplete="email"></ion-input>
+      </ion-item>
+      <!-- validators -->
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">
+          El correo es requerido
+        </div>
+        <div *ngIf="form.controls.email.errors?.['email']">
+          Ingrese un correo válido
+        </div>
+      </div>
+
+      <br>
+      <!-- PASSWORD -->
+      <ion-item>
+        <ion-icon slot="start" name="lock-closed-outline" color="primary"></ion-icon>
+        <ion-input [type]="hidePassword ? 'password' : 'text'" formControlName="password" label="Contraseña"
+          label-placement="floating" autocomplete="current-password"></ion-input>
+
+        <ion-button (click)="hidePassword = !hidePassword" slot="end" fill="clear" shape="round">
+          <ion-icon [name]="hidePassword ? 'eye-outline' : 'eye-off-outline'" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <!-- validators -->
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']">
+          La contraseña es requerida
+        </div>
+      </div>
+
+
+      <!-- LOGIN -->
+      <ion-button class="ion-margin-top" expand="block" mode="ios" type="submit" [disabled]="form.invalid">
+        Iniciar sesión
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+
+    </form>
+    <!-- BOTONES DE AUTOCOMPLETADO -->
+    <div class="bottom-buttons">
+
+      <ion-button class="circle-button" (click)="autocompletarUsuario('A')" fill="clear" shape="round">
+        <ion-icon name="shield-checkmark-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button class="circle-button" (click)="autocompletarUsuario('B')" fill="clear" shape="round">
+        <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button class="circle-button" (click)="autocompletarUsuario('C')" fill="clear" shape="round">
+        <ion-icon name="person-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button class="circle-button" (click)="autocompletarUsuario('D')" fill="clear" shape="round">
+        <ion-icon name="eye-off-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-button class="circle-button" (click)="autocompletarUsuario('E')" fill="clear" shape="round">
+        <ion-icon name="flask-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+
+    </div>
+
+    <div>
+      <img src="../../../assets/logo.png" alt="" style="height: 300px;">
+    </div>
+  </div>
+</ion-content>

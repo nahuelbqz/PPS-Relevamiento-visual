@@ -1,0 +1,28 @@
+ion-content {
+  --background: rgb(168, 163, 162);
+  --background: linear-gradient(150deg, rgb(0, 126, 71), rgb(55, 0, 96));
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 20px;
+}
+.validators {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(252, 73, 73);
+}
+
+.register-button {
+  font-size: 20px;
+  font-weight: bold;
+}

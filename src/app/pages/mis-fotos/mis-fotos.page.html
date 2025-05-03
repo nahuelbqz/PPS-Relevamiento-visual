@@ -1,0 +1,20 @@
+<app-header backButton="/home" title="Mis fotos"></app-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="fotos.length > 0; else noFotos">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="8" offset-md="2" *ngFor="let foto of fotos">
+          <ion-card>
+            <img [src]="foto.url" />
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ng-template #noFotos>
+    <p style="text-align: center; margin-top: 15vh; font-weight: bold;">No tenés fotos subidas todavía.</p>
+  </ng-template>
+</ion-content>

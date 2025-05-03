@@ -1,0 +1,70 @@
+<app-header backButton="/login" title="Registro"></app-header>
+
+<ion-content>
+  <div class="container">
+    <p>Ingrese sus datos para crear una cuenta</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="ion-padding">
+
+        <!-- USUARIO -->
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="person-outline"></ion-icon>
+          <ion-input
+            label="Usuario"
+            label-placement="floating"
+            autocomplete="username"
+            [formControl]="form.controls.username">
+          </ion-input>
+        </ion-item>
+        <div class="validators" *ngIf="form.controls.username.errors && form.controls.username.touched">
+          <div *ngIf="form.controls.username.errors?.['required']">El usuario es requerido</div>
+        </div>
+
+        <br />
+
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="mail-outline"></ion-icon>
+          <ion-input
+            label="Correo"
+            label-placement="floating"
+            type="email"
+            autocomplete="email"
+            [formControl]="form.controls.email">
+          </ion-input>
+        </ion-item>
+        <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+          <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+          <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo válido</div>
+        </div>
+
+        <br />
+
+        <!-- PASSWORD -->
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-input
+            [type]="hidePassword ? 'password' : 'text'"
+            label="Contraseña"
+            label-placement="floating"
+            [formControl]="form.controls.password">
+          </ion-input>
+          <ion-button slot="end" fill="clear" shape="round" (click)="togglePasswordVisibility()">
+            <ion-icon slot="icon-only" [name]="hidePassword ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+          <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
+        </div>
+
+        <div>
+          <p>¿Ya sos miembro? <a [routerLink]="['/login']">Ingresa con tu cuenta</a></p>
+        </div>
+
+        <ion-button expand="block" mode="ios" class="register-button" type="submit"
+          [disabled]="form.invalid">Registrarse</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

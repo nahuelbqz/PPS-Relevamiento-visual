@@ -1,0 +1,112 @@
+ion-content {
+  --background: linear-gradient(150deg, rgb(0, 126, 71), rgb(55, 0, 96));
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // height: 100%;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.camera-button {
+  width: 85vw;
+  height: 45vh;
+  border-radius: 12px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camera-icon {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.camera-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.small-button {
+  width: 70vw;
+  height: 8vh;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button-row .small-button {
+  width: auto;
+  min-width: 120px;
+  flex: 1;
+}
+
+//
+.fotos-container {
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.foto-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.foto-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.foto-info {
+  text-align: center;
+}
+
+.foto-info p {
+  margin: 0.2rem 0;
+  font-weight: bold;
+  color: #333;
+}
+
+//
+.fotos-scroll {
+  padding: 1rem 2rem;
+  max-height: 72vh; // size del scroll fotos
+  overflow-y: auto;
+}
+
+.foto-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}

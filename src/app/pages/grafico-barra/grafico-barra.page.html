@@ -1,0 +1,15 @@
+<app-header backButton="/cosas-feas" title="Gráfico barra"></app-header>
+
+<ion-content class="ion-padding">
+  <div class="grafico-container">
+    <ngx-charts-bar-vertical [results]="dataGrafico" scheme="cool" [xAxis]="true" [yAxis]="true" [legend]="false"
+      [gradient]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="" yAxisLabel="Votos"
+      [view]="[360, 360]" (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+  </div>
+
+  <div *ngIf="selectedFoto" class="foto-detalle">
+    <img [src]="selectedFoto.url" alt="Foto seleccionada" />
+    <p>{{ selectedFoto.likes.length }} Votos</p>
+  </div>
+</ion-content>

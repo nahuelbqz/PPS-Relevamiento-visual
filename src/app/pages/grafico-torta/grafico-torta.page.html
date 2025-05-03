@@ -1,0 +1,14 @@
+<app-header backButton="/cosas-lindas" title="Gráfico torta"></app-header>
+
+<ion-content class="ion-padding">
+  <div class="grafico-container">
+    <ngx-charts-pie-chart [results]="dataGrafico" [legend]="false" [labels]="false" [doughnut]="false"
+      [explodeSlices]="false" [view]="[380, 380]" [gradient]="true" scheme="cool" (select)="onSelect($event)">
+    </ngx-charts-pie-chart>
+  </div>
+
+  <div *ngIf="selectedFoto" class="foto-detalle">
+    <img [src]="selectedFoto.url" alt="Foto seleccionada" />
+    <p>{{ selectedFoto.likes.length }} Votos</p>
+  </div>
+</ion-content>

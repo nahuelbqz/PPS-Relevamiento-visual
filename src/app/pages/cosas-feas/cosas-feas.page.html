@@ -1,0 +1,44 @@
+<app-header backButton="/home" title="Cosas feas"></app-header>
+
+<ion-content>
+  <div class="container">
+    <div class="button-row">
+      <ion-button class="small-button" color="light" routerLink="/mis-fotos">
+        MIS FOTOS
+      </ion-button>
+      <ion-button class="small-button" color="light" routerLink="/grafico-barra">
+        GRÁFICO
+      </ion-button>
+    </div>
+
+    <ion-button class="camera-button" expand="block" color="primary" (click)="tomarFoto()">
+      <div class="camera-content">
+        <ion-icon name="camera" class="camera-icon"></ion-icon>
+        <span class="camera-text">TOMAR UNA FOTO</span>
+      </div>
+    </ion-button>
+
+    <ion-button class="small-button" expand="block" color="light" (click)="cargarListadoFotos()">
+      <ion-icon name="arrow-down-outline" style="font-size: 3rem;"></ion-icon>
+      LISTADO DE FOTOS
+      <ion-icon name="arrow-down-outline" style="font-size: 3rem;"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- LISTADO -->
+  <div *ngIf="mostrarFotos" class="fotos-scroll">
+    <div *ngFor="let foto of fotos" class="foto-card">
+      <ion-img [src]="foto.url" class="foto-imagen"></ion-img>
+      <div class="foto-info">
+        <p> {{ foto.user_email }}</p>
+        <p><strong>Fecha:</strong> {{ foto.fecha_hora | date:'dd/MM/yyyy HH:mm' }}</p>
+
+        <!-- Botón de like -->
+        <ion-button fill="clear" (click)="toggleLike(foto)">
+          <ion-icon [name]="foto.likes?.includes(usuarioActual) ? 'heart' : 'heart-outline'"
+            style="font-size: 2rem; color: red;"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

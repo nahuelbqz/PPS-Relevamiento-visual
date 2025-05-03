@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title style="margin: 32px 0px 10px 0;">
+      <strong>{{title}}</strong>
+      <div class="nombre-aplicacion">Relevamiento visual</div>
+    </ion-title>
+
+    <ion-buttons slot="end" *ngIf="isLoggedIn">
+      <ion-button (click)="logout()">
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
